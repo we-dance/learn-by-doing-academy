@@ -67,7 +67,7 @@ const Index = () => {
               <Button
                 variant="outline"
                 onClick={() => document.getElementById('success-stories')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-primary/30 text-primary hover:bg-primary/10 px-8 py-6 text-lg rounded-xl transition-all duration-300"
+                className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 text-lg rounded-xl transition-all duration-300"
               >
                 See Success Stories
               </Button>
@@ -326,13 +326,13 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-start gap-8">
             <div className="flex-shrink-0">
               <Avatar className="w-20 h-20 ring-2 ring-primary/30">
-                <AvatarImage src="/people/razbakov.jpg" alt="Alosha" />
+                <AvatarImage src="/people/razbakov.jpg" alt="Alösha" />
                 <AvatarFallback className="bg-primary/10 text-primary text-2xl">A</AvatarFallback>
               </Avatar>
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2 flex-wrap">
-                <h3 className="font-bold text-2xl text-slate-50">Alosha</h3>
+                <h3 className="font-bold text-2xl text-slate-50">Alösha</h3>
                 <div className="flex items-center gap-2">
                   <a href="https://www.linkedin.com/in/razbakov/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     <Linkedin className="w-4 h-4" />
@@ -427,7 +427,7 @@ const Index = () => {
               },
             ].map((project) => (
               <div key={project.name} className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-all duration-300">
-                <div className="bg-slate-800/50 rounded-xl p-4 mb-4">
+                <div className="bg-white/90 rounded-xl p-4 mb-4">
                   <img src={project.img} alt={project.name} className="w-full h-28 object-contain" />
                 </div>
                 <h3 className="text-xl font-semibold text-slate-50 mb-2">{project.name}</h3>

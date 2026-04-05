@@ -37,7 +37,7 @@ const FAQ = () => {
     <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto bg-card border border-border rounded-2xl p-6">
       {faqs.map((faq, index) => (
         <AccordionItem key={index} value={`item-${index}`} className="border-border">
-          <AccordionTrigger className="text-left text-slate-50 hover:text-primary transition-colors">
+          <AccordionTrigger className="text-left text-slate-50 hover:text-emerald-400 hover:no-underline transition-colors">
             {faq.question}
           </AccordionTrigger>
           <AccordionContent className="text-muted-foreground">
