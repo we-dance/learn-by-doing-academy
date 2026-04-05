@@ -719,29 +719,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Ikigai Team Banner */}
-      <section className="py-12 bg-muted/30">
-        <div className="container px-4">
-          <a
-            href="https://ikigai.razbakov.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 p-5 rounded-lg border border-border/50 hover:border-primary/30 hover:bg-card/50 transition-all max-w-2xl mx-auto group"
-          >
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 shrink-0">
-              <Sparkles className="w-5 h-5 text-purple-400" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-semibold group-hover:text-primary transition-colors">Ikigai Team</h3>
-              <p className="text-sm text-muted-foreground">Your AI dream team — 6 agents with coaching, strategy, and operations built in.</p>
-            </div>
-            <span className="text-primary text-sm font-medium shrink-0 hidden sm:flex items-center gap-1">
-              Meet the team <ArrowRight className="w-4 h-4" />
-            </span>
-          </a>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="border-t border-border bg-card/30">
         <div className="container px-4 py-12 md:py-16">
