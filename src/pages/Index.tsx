@@ -33,6 +33,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="container px-4 py-6 relative z-20">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 border border-primary/20">
+            <span className="text-primary font-mono font-bold text-sm md:text-base">&lt;LBD&gt;</span>
+          </div>
+          <div className="leading-tight">
+            <div className="text-slate-50 font-bold text-sm md:text-base tracking-wide">LEARN BY DOING</div>
+            <div className="text-muted-foreground text-xs tracking-widest">ACADEMY</div>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Background grid pattern */}
