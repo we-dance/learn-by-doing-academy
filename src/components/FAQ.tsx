@@ -8,15 +8,15 @@ import {
 const faqs = [
   {
     question: "Why is this program relevant in today's job market?",
-    answer: "AI is transforming every industry. Employers increasingly seek people who can build with AI — not just use it, but ship real products. Our program gives you hands-on experience building AI-powered projects, industry recommendations, and a portfolio that proves you can deliver.",
+    answer: "AI is transforming every industry. Employers increasingly seek people who can build with AI \u2014 not just use it, but ship real products. Our program gives you hands-on experience building AI-powered projects, industry recommendations, and a portfolio that proves you can deliver.",
   },
   {
     question: "What will I learn?",
-    answer: "You'll learn to build real products using AI: prompt engineering, AI agents, automation, full-stack development, design, and business strategy — all through hands-on projects. The curriculum evolves with the AI landscape, so you're always learning what's current.",
+    answer: "You'll learn to build real products using AI: prompt engineering, AI agents, automation, full-stack development, design, and business strategy \u2014 all through hands-on projects. The curriculum evolves with the AI landscape, so you're always learning what's current.",
   },
   {
     question: "What makes your approach different?",
-    answer: "We focus on building, not lectures. Every week you work on real projects alongside your mentor in live sessions. You ship products, build a portfolio, and get career support. Our graduates work at real companies — that's the proof.",
+    answer: "We focus on building, not lectures. Every week you work on real projects alongside your mentor in live sessions. You ship products, build a portfolio, and get career support. Our graduates work at real companies \u2014 that's the proof.",
   },
   {
     question: "What will I achieve?",
@@ -28,19 +28,19 @@ const faqs = [
   },
   {
     question: "What's the difference between the plans?",
-    answer: "Community (€29/mo) gives you recordings, Telegram group, and async Q&A. Live (€79/mo) adds weekly live sessions where you build alongside your mentor. Mentorship (€199/mo) adds 1-on-1 monthly calls, project reviews, and career guidance. All plans include a 1-week free trial.",
+    answer: "Community (\u20ac29/mo) gives you recordings, Telegram group, and async Q&A. Live (\u20ac79/mo) adds weekly live sessions where you build alongside your mentor. Mentorship (\u20ac199/mo) adds 1-on-1 monthly calls, project reviews, and career guidance. All plans include a 1-week free trial.",
   },
 ];
 
 const FAQ = () => {
   return (
-    <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto bg-white/50 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+    <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto bg-card border border-border rounded-2xl p-6">
       {faqs.map((faq, index) => (
-        <AccordionItem key={index} value={`item-${index}`}>
-          <AccordionTrigger className="text-left text-primary hover:text-primary-dark">
+        <AccordionItem key={index} value={`item-${index}`} className="border-border">
+          <AccordionTrigger className="text-left text-slate-50 hover:text-primary transition-colors">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="text-gray-600">
+          <AccordionContent className="text-muted-foreground">
             {faq.answer}
           </AccordionContent>
         </AccordionItem>
