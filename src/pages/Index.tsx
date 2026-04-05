@@ -257,17 +257,19 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-              <ApplicationDialog>
-                <Button
-                  className={`w-full ${
-                    tier.popular
-                      ? "bg-primary text-white hover:bg-primary/90"
-                      : "bg-primary/10 text-primary hover:bg-primary/20"
-                  } transition-colors duration-300`}
-                >
-                  Start Free Trial
-                </Button>
-              </ApplicationDialog>
+              <Button
+                onClick={() => {
+                  const pkg = prices[tier.key];
+                  if (pkg?.paymentLink) window.location.href = pkg.paymentLink;
+                }}
+                className={`w-full ${
+                  tier.popular
+                    ? "bg-primary text-white hover:bg-primary/90"
+                    : "bg-primary/10 text-primary hover:bg-primary/20"
+                } transition-colors duration-300`}
+              >
+                Start Free Trial
+              </Button>
             </div>
           ))}
         </div>
