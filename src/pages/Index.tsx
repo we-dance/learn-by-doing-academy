@@ -284,7 +284,7 @@ const Index = () => {
               <div className="flex-shrink-0">
                 <div className="w-16 h-16">
                   <Avatar className="w-full h-full">
-                    <AvatarImage src="/people/razbakov.jpg" alt="Alosha" />
+                    <AvatarImage src="/people/razbakov.jpg" alt="Alösha" />
                     <AvatarFallback>A</AvatarFallback>
                   </Avatar>
                 </div>
@@ -292,9 +292,18 @@ const Index = () => {
               <div>
                 <h3 className="font-semibold text-xl mb-1">
                   <div className="flex items-center gap-2">
-                    Alosha
+                    Alösha
                     <a href="https://www.linkedin.com/in/razbakov/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">
                       <Linkedin className="w-4 h-4" />
+                    </a>
+                    <a href="https://razbakov.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors text-sm">
+                      Website
+                    </a>
+                    <a href="https://www.youtube.com/@razbakov" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors text-sm">
+                      YouTube
+                    </a>
+                    <a href="https://t.me/razbakov" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors text-sm">
+                      Telegram
                     </a>
                   </div>
                 </h3>
