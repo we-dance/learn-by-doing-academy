@@ -82,7 +82,7 @@ const Index = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Weekly live sessions. Real projects. Graduates at real companies. This is not a course -- it's a builder program.
+              Weekly live sessions. Real projects. Graduates at real companies. This is not a course — it's a builder program.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -378,7 +378,7 @@ const Index = () => {
               </div>
               <p className="text-primary font-medium mb-4">AI Builder, Full Stack Developer & Mentor</p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                15+ years building products, leading teams, and shipping software. Now focused on teaching others how to build with AI -- from agents and automation to full-stack products. Runs weekly live sessions where you build alongside him.
+                15+ years building products, leading teams, and shipping software. Now focused on teaching others how to build with AI — from agents and automation to full-stack products. Runs weekly live sessions where you build alongside him.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
