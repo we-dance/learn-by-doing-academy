@@ -1,4 +1,4 @@
-import { Linkedin, Bot, Radio, Rocket, Users, UserCheck, Check, Globe, Youtube, Send, ArrowRight, Sparkles, Zap, Trophy } from "lucide-react";
+import { Linkedin, Bot, Radio, Rocket, Users, UserCheck, Check, Globe, Youtube, Send, ArrowRight, Sparkles, Zap, Trophy, ExternalLink } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import { Button } from "@/components/ui/button";
 import ApplicationDialog from "@/components/ApplicationDialog";
@@ -695,6 +695,68 @@ const Index = () => {
           </h2>
         </div>
         <FAQ />
+      </section>
+
+      {/* Featured Project */}
+      <section className="bg-card/50 border-y border-border">
+        <div className="container px-4 py-20 md:py-24">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
+              What You'll Build
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Our students build real AI-powered systems. Here's one example.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <a
+              href="https://ikigai.razbakov.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-300 group"
+            >
+              <div className="flex items-start gap-6">
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 shrink-0">
+                  <span className="text-primary font-mono font-bold text-sm">&lt;IT&gt;</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h3 className="text-xl font-semibold text-slate-50 group-hover:text-primary transition-colors">Ikigai Team</h3>
+                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+                  <p className="text-muted-foreground mb-4">
+                    6 AI agents that manage 15 side projects — with built-in GTD, OKRs, and governance. Built entirely with Claude Code and markdown skill files.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["AI Agents", "Claude Code", "Prompt Engineering", "System Design"].map((tag) => (
+                      <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </a>
+            <div className="mt-6 flex justify-center gap-4">
+              <a
+                href="https://razbakov.com/blog/2026-03-24-ai-agent-team"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                Read the blog post &rarr;
+              </a>
+              <a
+                href="https://razbakov.com/blog/2026-04-04-become-a-claude-master"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                See the training system &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* CTA Section */}
