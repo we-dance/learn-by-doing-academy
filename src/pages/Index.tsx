@@ -33,16 +33,31 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="container px-4 py-6 relative z-20">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 border border-primary/20">
-            <span className="text-primary font-mono font-bold text-sm md:text-base">&lt;LBD&gt;</span>
+      {/* Header / Nav */}
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+        <div className="container px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary/10 border border-primary/20">
+              <span className="text-primary font-mono font-bold text-xs md:text-sm">&lt;LBD&gt;</span>
+            </div>
+            <div className="leading-tight hidden sm:block">
+              <div className="text-slate-50 font-bold text-sm tracking-wide">LEARN BY DOING</div>
+              <div className="text-muted-foreground text-xs tracking-widest">ACADEMY</div>
+            </div>
           </div>
-          <div className="leading-tight">
-            <div className="text-slate-50 font-bold text-sm md:text-base tracking-wide">LEARN BY DOING</div>
-            <div className="text-muted-foreground text-xs tracking-widest">ACADEMY</div>
-          </div>
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-slate-50 transition-colors">How It Works</a>
+            <a href="#pricing-section" className="text-sm text-muted-foreground hover:text-slate-50 transition-colors">Pricing</a>
+            <a href="#success-stories" className="text-sm text-muted-foreground hover:text-slate-50 transition-colors">Success Stories</a>
+            <a href="#faq" className="text-sm text-muted-foreground hover:text-slate-50 transition-colors">FAQ</a>
+          </nav>
+          <Button
+            onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-accent text-accent-foreground hover:bg-accent-dark text-sm px-5 py-2 rounded-lg font-semibold"
+            size="sm"
+          >
+            Start Free Trial
+          </Button>
         </div>
       </header>
 
@@ -179,7 +194,7 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-card/50 border-y border-border">
+      <section id="how-it-works" className="bg-card/50 border-y border-border">
         <div className="container px-4 py-20 md:py-24">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
@@ -673,7 +688,7 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="container px-4 py-20 md:py-24">
+      <section id="faq" className="container px-4 py-20 md:py-24">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-50 mb-4">
             Frequently Asked Questions
@@ -703,6 +718,71 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-card/30">
+        <div className="container px-4 py-12 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+            {/* Brand */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 border border-primary/20">
+                  <span className="text-primary font-mono font-bold text-xs">&lt;LBD&gt;</span>
+                </div>
+                <div className="leading-tight">
+                  <div className="text-slate-50 font-bold text-sm tracking-wide">LEARN BY DOING</div>
+                  <div className="text-muted-foreground text-xs tracking-widest">ACADEMY</div>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Learn to build real products with AI. Weekly live sessions, real projects, proven outcomes.
+              </p>
+            </div>
+
+            {/* Navigation */}
+            <div>
+              <h4 className="text-slate-50 font-semibold mb-4 text-sm uppercase tracking-wider">Navigation</h4>
+              <ul className="space-y-2">
+                <li><a href="#how-it-works" className="text-muted-foreground hover:text-primary text-sm transition-colors">How It Works</a></li>
+                <li><a href="#pricing-section" className="text-muted-foreground hover:text-primary text-sm transition-colors">Pricing</a></li>
+                <li><a href="#success-stories" className="text-muted-foreground hover:text-primary text-sm transition-colors">Success Stories</a></li>
+                <li><a href="#faq" className="text-muted-foreground hover:text-primary text-sm transition-colors">FAQ</a></li>
+              </ul>
+            </div>
+
+            {/* Connect */}
+            <div>
+              <h4 className="text-slate-50 font-semibold mb-4 text-sm uppercase tracking-wider">Connect</h4>
+              <ul className="space-y-2">
+                <li>
+                  <a href="https://t.me/razbakov" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary text-sm transition-colors flex items-center gap-2">
+                    <Send className="w-4 h-4" /> Telegram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@razbakov" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary text-sm transition-colors flex items-center gap-2">
+                    <Youtube className="w-4 h-4" /> YouTube
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/razbakov/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary text-sm transition-colors flex items-center gap-2">
+                    <Linkedin className="w-4 h-4" /> LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="https://razbakov.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary text-sm transition-colors flex items-center gap-2">
+                    <Globe className="w-4 h-4" /> razbakov.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-border pt-8 text-center text-muted-foreground text-sm">
+            &copy; {new Date().getFullYear()} Learn by Doing Academy. Munich, Germany.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
