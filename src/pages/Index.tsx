@@ -1,4 +1,4 @@
-import { Linkedin, Bot, Radio, Rocket, Users, UserCheck, Check } from "lucide-react";
+import { Linkedin, Bot, Radio, Rocket, Users, UserCheck, Check, Globe, Youtube, Send } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import { Button } from "@/components/ui/button";
 import ApplicationDialog from "@/components/ApplicationDialog";
@@ -298,14 +298,14 @@ const Index = () => {
                     <a href="https://www.linkedin.com/in/razbakov/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">
                       <Linkedin className="w-4 h-4" />
                     </a>
-                    <a href="https://razbakov.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors text-sm">
-                      Website
+                    <a href="https://razbakov.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">
+                      <Globe className="w-4 h-4" />
                     </a>
-                    <a href="https://www.youtube.com/@razbakov" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors text-sm">
-                      YouTube
+                    <a href="https://www.youtube.com/@razbakov" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">
+                      <Youtube className="w-4 h-4" />
                     </a>
-                    <a href="https://t.me/razbakov" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors text-sm">
-                      Telegram
+                    <a href="https://t.me/razbakov" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">
+                      <Send className="w-4 h-4" />
                     </a>
                   </div>
                 </h3>
