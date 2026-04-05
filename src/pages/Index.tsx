@@ -1,88 +1,40 @@
-import { Briefcase, Palette, Code, Video, Linkedin } from "lucide-react";
-import ProgramCard from "@/components/ProgramCard";
+import { Linkedin, Bot, Radio, Rocket, Users, UserCheck, Check } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import { Button } from "@/components/ui/button";
 import ApplicationDialog from "@/components/ApplicationDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { prices } from "@/lib/payment-matrix";
 
 const Index = () => {
-  const programs = [
+  const pricingTiers = [
     {
-      title: "Business",
-      description: "Master leadership, economy, and business communication through hands-on projects.",
-      icon: <Briefcase />,
-      features: [
-        "Sociocracy 3.0 & Agile Leadership",
-        "OKRs & Strategic Planning",
-        "Business Communication & Negotiation",
-        "Team Management & Conflict Resolution",
-        "Financial Planning & Analysis",
-        "Project Portfolio Management"
-      ],
-      alternatives: [
-        { name: "iMBA", price: "$22,104", link: "https://giesonline.illinois.edu/tuition-costs" },
-      ],
+      key: "community",
+      name: "Community",
+      price: "€29",
+      icon: <Users className="w-6 h-6" />,
+      features: prices.community.features,
     },
     {
-      title: "Design",
-      description: "Build a professional UI/UX portfolio through real-world projects.",
-      icon: <Palette />,
-      features: [
-        "Advanced Figma Prototyping",
-        "Design Systems Architecture",
-        "User Research & Testing",
-        "Design Sprint Facilitation",
-        "Interaction Design Patterns",
-        "Accessibility & Inclusive Design"
-      ],
-      alternatives: [
-        { name: "CareerFoundry", price: "€6,175", link: "https://careerfoundry.com/" },
-        { name: "Interaction Design", price: "€15/month", link: "https://www.interaction-design.org/" },
-      ],
+      key: "live",
+      name: "Live",
+      price: "€79",
+      popular: true,
+      icon: <Radio className="w-6 h-6" />,
+      features: prices.live.features,
     },
     {
-      title: "Programming",
-      description: "Learn modern web development through practical applications.",
-      icon: <Code />,
-      features: [
-        "Full-Stack JavaScript/TypeScript",
-        "Vue.js & Nuxt.js Mastery",
-        "Cloud Architecture & DevOps",
-        "API Design & Integration",
-        "Testing & Performance Optimization",
-        "Security Best Practices"
-      ],
-      alternatives: [
-        { name: "VueSchool", price: "$25/month", link: "https://vueschool.io/" },
-        { name: "Harvard CS50", price: "$149", link: "https://www.edx.org/cs50" },
-      ],
-    },
-    {
-      title: "Storytelling",
-      description: "Master the art of visual storytelling and film production.",
-      icon: <Video />,
-      features: [
-        "Professional Video Editing",
-        "Advanced Cinematography",
-        "Narrative Structure & Scripting",
-        "Motion Graphics & Animation",
-        "Sound Design & Mixing",
-        "Content Strategy & Distribution"
-      ],
-      alternatives: [
-        { name: "SAE Institute", price: "€4,410", link: "https://www.sae.edu/deu/en/" },
-      ],
+      key: "mentorship",
+      name: "Mentorship",
+      price: "€199",
+      icon: <UserCheck className="w-6 h-6" />,
+      features: prices.mentorship.features,
     },
   ];
-
-  const scrollToPrograms = () => {
-    const programsSection = document.getElementById('programs-section');
-    programsSection?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-accent/5 to-white relative">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,theme(colors.primary/5)_1px,transparent_0)] bg-[size:40px_40px] opacity-50 -z-10" />
+
       {/* Hero Section */}
       <section className="container px-4 py-32 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,theme(colors.primary/10)_1px,transparent_0)] bg-[size:24px_24px] opacity-30 animate-[pulse_4s_ease-in-out_infinite]" />
@@ -91,76 +43,86 @@ const Index = () => {
             Learn by Doing Academy
           </h1>
           <p className="text-2xl text-gray-800 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Master real-world skills through hands-on projects. Join our project-based education platform with flexible, pay-what-you-can pricing.
+            Learn to build with AI. Weekly live sessions, real projects, real outcomes.
           </p>
-          <ApplicationDialog>
-            <Button className="bg-accent text-white hover:bg-accent/90 px-12 py-6 text-xl font-semibold animate-[fadeIn_1s_ease-out_0.6s_both] shadow-[0_0_30px_-5px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_-5px_rgba(236,72,153,0.5)] transition-all duration-300 rounded-xl hover:-translate-y-1 relative overflow-hidden group backdrop-blur-sm">
-              <span className="relative z-10">Start Your Journey</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Button>
-          </ApplicationDialog>
+          <Button
+            onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-accent text-white hover:bg-accent/90 px-12 py-6 text-xl font-semibold animate-[fadeIn_1s_ease-out_0.6s_both] shadow-[0_0_30px_-5px_rgba(236,72,153,0.3)] hover:shadow-[0_0_30px_-5px_rgba(236,72,153,0.5)] transition-all duration-300 rounded-xl hover:-translate-y-1 relative overflow-hidden group backdrop-blur-sm"
+          >
+            <span className="relative z-10">Start Your Journey</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </Button>
         </div>
       </section>
 
       {/* Why Us Section */}
       <section className="container px-4 py-16">
         <h2 className="text-3xl font-bold text-primary text-center mb-4">
-          Why Choose Learn by Doing Academy?
+          Why Learn by Doing?
         </h2>
         <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          We prepare you for the modern job market through practical experience and innovative learning
+          The world changed. The way you learn should too.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-            <h3 className="text-xl font-semibold text-primary mb-4">Industry-Relevant Skills</h3>
+            <div className="p-3 rounded-xl bg-primary/10 text-primary w-fit mb-4">
+              <Rocket className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary mb-4">Build Real Things with AI</h3>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Hands-on experience with modern tools and technologies</span>
+                <span>Ship products, not homework assignments</span>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Real-world project portfolio development</span>
+                <span>AI agents, prompt engineering, and modern workflows</span>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Practical application of industry best practices</span>
+                <span>Design, code, and launch using AI as your tool</span>
               </li>
             </ul>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-            <h3 className="text-xl font-semibold text-primary mb-4">AI-First Approach</h3>
+            <div className="p-3 rounded-xl bg-primary/10 text-primary w-fit mb-4">
+              <Radio className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary mb-4">Weekly Live Sessions</h3>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Learn to leverage AI tools effectively in your work</span>
+                <span>Build alongside your mentor every week</span>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Modern AI-augmented workplace preparation</span>
+                <span>Ask questions, get feedback in real time</span>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Future-proof your career with AI integration skills</span>
+                <span>Learn from others in the community</span>
               </li>
             </ul>
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-            <h3 className="text-xl font-semibold text-primary mb-4">Professional Growth</h3>
+            <div className="p-3 rounded-xl bg-primary/10 text-primary w-fit mb-4">
+              <Bot className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-semibold text-primary mb-4">Proven Outcomes</h3>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Industry expert mentorship and guidance</span>
+                <span>Graduates hired at real companies</span>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Strong professional network building</span>
+                <span>Portfolio of shipped projects</span>
               </li>
               <li className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60 mt-2" />
-                <span>Career development and job placement support</span>
+                <span>Industry recommendations and referrals</span>
               </li>
             </ul>
           </div>
@@ -173,28 +135,23 @@ const Index = () => {
           How It Works
         </h2>
         <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Our unique approach combines hands-on learning with expert mentorship
+          A structured journey from beginner to builder
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="relative p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">1</div>
-            <h3 className="font-semibold text-lg mb-3 text-primary">Choose Your Path</h3>
-            <p className="text-gray-600">Select from our four specialized programs tailored to your career goals</p>
+            <h3 className="font-semibold text-lg mb-3 text-primary">Join</h3>
+            <p className="text-gray-600">Pick your plan. Get access to the community, recordings, and live sessions.</p>
           </div>
           <div className="relative p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">2</div>
-            <h3 className="font-semibold text-lg mb-3 text-primary">Join Live Sessions</h3>
-            <p className="text-gray-600">Participate in interactive workshops and collaborative learning sessions</p>
+            <h3 className="font-semibold text-lg mb-3 text-primary">Build with AI</h3>
+            <p className="text-gray-600">Work on real projects using AI tools. Get feedback from your mentor and peers.</p>
           </div>
           <div className="relative p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">3</div>
-            <h3 className="font-semibold text-lg mb-3 text-primary">Build Projects</h3>
-            <p className="text-gray-600">Work on real-world projects with guidance from industry experts</p>
-          </div>
-          <div className="relative p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">4</div>
-            <h3 className="font-semibold text-lg mb-3 text-primary">Get Certified</h3>
-            <p className="text-gray-600">Complete your portfolio and receive certification for your achievements</p>
+            <h3 className="font-semibold text-lg mb-3 text-primary">Launch Your Project</h3>
+            <p className="text-gray-600">Ship something real. Build your portfolio. Get career support and referrals.</p>
           </div>
         </div>
 
@@ -207,27 +164,27 @@ const Index = () => {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">1</div>
                 <h4 className="text-lg font-semibold mb-3 text-primary text-center">Foundation (Month 1-2)</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Core concepts and principles</li>
-                  <li>• Basic tools and methodologies</li>
-                  <li>• First hands-on project</li>
+                  <li>- AI fundamentals and prompt engineering</li>
+                  <li>- Setting up your AI-powered workflow</li>
+                  <li>- First hands-on project</li>
                 </ul>
               </div>
               <div className="relative bg-white p-6 rounded-xl shadow-lg">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">2</div>
                 <h4 className="text-lg font-semibold mb-3 text-primary text-center">Development (Month 3-4)</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Advanced techniques</li>
-                  <li>• Team collaboration</li>
-                  <li>• Complex project work</li>
+                  <li>- AI agents and automation</li>
+                  <li>- Building products end-to-end</li>
+                  <li>- Team collaboration on real projects</li>
                 </ul>
               </div>
               <div className="relative bg-white p-6 rounded-xl shadow-lg">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">3</div>
                 <h4 className="text-lg font-semibold mb-3 text-primary text-center">Mastery (Month 5-6)</h4>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Industry-level projects</li>
-                  <li>• Portfolio completion</li>
-                  <li>• Career preparation</li>
+                  <li>- Launch your own AI-powered product</li>
+                  <li>- Portfolio completion</li>
+                  <li>- Career preparation and referrals</li>
                 </ul>
               </div>
             </div>
@@ -235,22 +192,88 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Programs Section */}
-      <section id="programs-section" className="container max-w-5xl px-4 py-16">
+      {/* What You'll Learn Section */}
+      <section className="container px-4 py-16 bg-white rounded-3xl my-8">
         <h2 className="text-3xl font-bold text-primary text-center mb-4">
-          Choose Your Path
+          What You'll Learn
         </h2>
         <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Four comprehensive programs designed to help you build real-world expertise
+          One program. AI is the method. Building is the outcome.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {programs.map((program) => (
-            <ProgramCard key={program.title} {...program} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            "AI Agents & Automation",
+            "Prompt Engineering",
+            "Building Products with AI",
+            "Design with AI Tools",
+            "Content Creation with AI",
+            "Full-Stack Development",
+            "Cloud Architecture & DevOps",
+            "Business Strategy & OKRs",
+            "Team Collaboration & Agile",
+          ].map((skill) => (
+            <div key={skill} className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg">
+              <Check className="w-5 h-5 text-primary flex-shrink-0" />
+              <span className="text-gray-700 font-medium">{skill}</span>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Our Experts Section */}
+      {/* Pricing Section */}
+      <section id="pricing-section" className="container max-w-5xl px-4 py-16">
+        <h2 className="text-3xl font-bold text-primary text-center mb-4">
+          Choose Your Plan
+        </h2>
+        <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          All plans include a 1-week free trial
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {pricingTiers.map((tier) => (
+            <div
+              key={tier.key}
+              className={`bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 relative ${
+                tier.popular ? "ring-2 ring-primary scale-105" : ""
+              }`}
+            >
+              {tier.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-sm px-4 py-1 rounded-full">
+                  Most Popular
+                </div>
+              )}
+              <div className="p-3 rounded-xl bg-primary/10 text-primary w-fit mb-4">
+                {tier.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-primary mb-2">{tier.name}</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-extrabold text-gray-900">{tier.price}</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <ul className="space-y-3 mb-8">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <ApplicationDialog>
+                <Button
+                  className={`w-full ${
+                    tier.popular
+                      ? "bg-primary text-white hover:bg-primary/90"
+                      : "bg-primary/10 text-primary hover:bg-primary/20"
+                  } transition-colors duration-300`}
+                >
+                  Start Free Trial
+                </Button>
+              </ApplicationDialog>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Meet Your Mentor Section */}
       <section className="container max-w-5xl px-4 py-16">
         <h2 className="text-3xl font-bold text-primary text-center mb-12">
           Meet Your Mentor
@@ -261,50 +284,50 @@ const Index = () => {
               <div className="flex-shrink-0">
                 <div className="w-16 h-16">
                   <Avatar className="w-full h-full">
-                    <AvatarImage src="/people/razbakov.jpg" alt="Alex Razbakov" />
-                    <AvatarFallback>AR</AvatarFallback>
+                    <AvatarImage src="/people/razbakov.jpg" alt="Alosha" />
+                    <AvatarFallback>A</AvatarFallback>
                   </Avatar>
                 </div>
               </div>
               <div>
                 <h3 className="font-semibold text-xl mb-1">
                   <div className="flex items-center gap-2">
-                    Alex Razbakov
+                    Alosha
                     <a href="https://www.linkedin.com/in/razbakov/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-colors">
                       <Linkedin className="w-4 h-4" />
                     </a>
                   </div>
                 </h3>
-                <p className="text-gray-600 mb-4">Senior Full Stack Developer, Business Mentor & Design Lead</p>
+                <p className="text-gray-600 mb-4">AI Builder, Full Stack Developer & Mentor</p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  With 15+ years of experience in web development, business leadership, and design, Alex brings a unique blend of technical and creative expertise. He specializes in Vue.js ecosystem, cloud solutions, UI/UX design, and business strategy. His comprehensive background spans across modern technologies, team leadership, and design thinking methodologies.
+                  15+ years building products, leading teams, and shipping software. Now focused on teaching others how to build with AI — from agents and automation to full-stack products. Runs weekly live sessions where you build alongside him.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div>
-                    <h4 className="font-semibold mb-2 text-primary">Technical Expertise</h4>
+                    <h4 className="font-semibold mb-2 text-primary">AI & Building</h4>
                     <ul className="space-y-2 text-gray-700">
-                      <li>• Vue.js & Nuxt.js (7+ years)</li>
-                      <li>• TypeScript & Modern JavaScript</li>
-                      <li>• Cloud Solutions (AWS, Firebase)</li>
-                      <li>• Full Stack Development</li>
+                      <li>- AI Agents & Automation</li>
+                      <li>- Prompt Engineering</li>
+                      <li>- Product Development with AI</li>
+                      <li>- Claude, GPT, Gemini workflows</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2 text-primary">Business Leadership</h4>
+                    <h4 className="font-semibold mb-2 text-primary">Technical</h4>
                     <ul className="space-y-2 text-gray-700">
-                      <li>• Team Management & Mentoring</li>
-                      <li>• Agile & Scrum Methodologies</li>
-                      <li>• Business Strategy</li>
-                      <li>• Project Management</li>
+                      <li>- Full Stack JavaScript/TypeScript</li>
+                      <li>- Vue.js, Nuxt.js, React</li>
+                      <li>- Cloud (AWS, Firebase)</li>
+                      <li>- DevOps & Architecture</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2 text-primary">Design Skills</h4>
+                    <h4 className="font-semibold mb-2 text-primary">Leadership</h4>
                     <ul className="space-y-2 text-gray-700">
-                      <li>• UI/UX Design</li>
-                      <li>• Design Systems</li>
-                      <li>• User Research</li>
-                      <li>• Prototyping</li>
+                      <li>- Team Management & Mentoring</li>
+                      <li>- Agile & Scrum</li>
+                      <li>- Business Strategy & OKRs</li>
+                      <li>- UI/UX Design</li>
                     </ul>
                   </div>
                 </div>
@@ -313,7 +336,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
 
       {/* Real Projects Section */}
       <section className="container px-4 py-16 bg-white rounded-3xl my-8">
@@ -416,8 +438,8 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
-      {/* FAQ Section */}
+
+      {/* Success Stories Section */}
       <section className="container px-4 py-16">
         <h2 className="text-3xl font-bold text-primary text-center mb-12">
           Success Stories
@@ -426,11 +448,7 @@ const Index = () => {
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0">
-                <img
-                  src="/people/robey.jpg"
-                  alt="James Robey"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                <img src="/people/robey.jpg" alt="James Robey" className="w-12 h-12 rounded-full object-cover" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -457,15 +475,11 @@ const Index = () => {
               "My time as an Intern was great. I learnt a lot of new skills and gained experience collaborating with others on projects. It helped guide me on my career path having learnt more about my strengths and weaknesses, and natural interests as a professional."
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0">
-                <img
-                  src="/people/mankodi.jpg"
-                  alt="Dipali Mankodi"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                <img src="/people/mankodi.jpg" alt="Dipali Mankodi" className="w-12 h-12 rounded-full object-cover" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -492,15 +506,11 @@ const Index = () => {
               "Gained hands-on experience in UX/UI design through real projects, leading to a full-time position as Product Designer at Whitespace Software."
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0">
-                <img
-                  src="/people/dorighello.jpg"
-                  alt="Marjorie Dorighello"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                <img src="/people/dorighello.jpg" alt="Marjorie Dorighello" className="w-12 h-12 rounded-full object-cover" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -516,15 +526,11 @@ const Index = () => {
               "Led team sprints and fostered cross-functional collaboration between designers and developers. Designed and tested a comprehensive design system, created prototypes, and conducted in-depth user research."
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0">
-                <img
-                  src="/people/panic.jpg"
-                  alt="Sanya Panic"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                <img src="/people/panic.jpg" alt="Sanya Panic" className="w-12 h-12 rounded-full object-cover" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -540,15 +546,11 @@ const Index = () => {
               "The hands-on experience and mentorship I received were invaluable. The project-based learning approach helped me develop practical skills that directly translated to my role."
             </p>
           </div>
-          
+
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0">
-                <img
-                  src="/people/dyuss.jpg"
-                  alt="Zuriya Dyuss"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                <img src="/people/dyuss.jpg" alt="Zuriya Dyuss" className="w-12 h-12 rounded-full object-cover" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -564,14 +566,11 @@ const Index = () => {
               "The program's focus on real-world projects and collaborative learning environment prepared me well for my career. I developed both technical and soft skills that are essential in my current role."
             </p>
           </div>
+
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="flex items-start gap-4 mb-4">
               <div className="flex-shrink-0">
-                <img
-                  src="/people/ilori.jpg"
-                  alt="Joshua Ilori"
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                <img src="/people/ilori.jpg" alt="Joshua Ilori" className="w-12 h-12 rounded-full object-cover" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -588,12 +587,14 @@ const Index = () => {
             </p>
           </div>
         </div>
-        
+
         <div className="text-center mb-16">
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Where Our Alumni Work</h3>
           <div className="flex flex-wrap justify-center gap-8 items-center">
             <div className="text-gray-600 font-semibold">YellowKorner</div>
             <div className="text-gray-600 font-semibold">Whitespace Software</div>
+            <div className="text-gray-600 font-semibold">ToroNet</div>
+            <div className="text-gray-600 font-semibold">Frontline Group</div>
           </div>
         </div>
       </section>
@@ -609,15 +610,15 @@ const Index = () => {
       {/* CTA Section */}
       <section className="container px-4 py-16 text-center">
         <h2 className="text-3xl font-bold text-primary mb-6">
-          Ready to Start Learning?
+          Ready to Build with AI?
         </h2>
         <p className="text-xl text-gray-800 mb-8 max-w-2xl mx-auto">
-          Join our community of learners and start your journey today with a donation of your choice.
+          Join the next cohort and start building real projects with AI. All plans include a 1-week free trial.
         </p>
         <div className="flex justify-center gap-4">
           <ApplicationDialog>
             <Button className="bg-accent text-white hover:bg-accent/90 px-8">
-              Apply Now
+              Start Free Trial
             </Button>
           </ApplicationDialog>
         </div>

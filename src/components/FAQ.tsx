@@ -8,27 +8,27 @@ import {
 const faqs = [
   {
     question: "Why is this program relevant in today's job market?",
-    answer: "In today's competitive job market, skills alone aren't enough. Employers seek candidates with practical experience, professional recommendations, and a strong online presence. Our program addresses these needs by providing hands-on project experience, recommendation letters, and guidance on building your professional portfolio across platforms like GitHub, LinkedIn, and dev.to.",
+    answer: "AI is transforming every industry. Employers increasingly seek people who can build with AI — not just use it, but ship real products. Our program gives you hands-on experience building AI-powered projects, industry recommendations, and a portfolio that proves you can deliver.",
   },
   {
-    question: "How do you prepare students for the AI-driven future?",
-    answer: "We embrace an AI-first approach, teaching you not just how to use AI tools but how to think and work in an AI-augmented workplace. You'll learn practical applications of AI in your field, modern collaboration techniques, and how to leverage AI to enhance your productivity and creativity.",
+    question: "What will I learn?",
+    answer: "You'll learn to build real products using AI: prompt engineering, AI agents, automation, full-stack development, design, and business strategy — all through hands-on projects. The curriculum evolves with the AI landscape, so you're always learning what's current.",
   },
   {
     question: "What makes your approach different?",
-    answer: "We focus on real-world impact through hands-on projects, not just theoretical knowledge. You'll build a portfolio of actual projects, contribute to meaningful initiatives, and develop both technical and soft skills. Our program also emphasizes modern workplace practices including remote collaboration, agile methodologies, and AI integration.",
+    answer: "We focus on building, not lectures. Every week you work on real projects alongside your mentor in live sessions. You ship products, build a portfolio, and get career support. Our graduates work at real companies — that's the proof.",
   },
   {
-    question: "What will I achieve in this program?",
-    answer: "Beyond skills, you'll gain: 1) Real project experience that employers value, 2) A professional portfolio showcasing your work, 3) Recommendation letters from industry experts, 4) Strong online presence across professional platforms, 5) Practical experience with AI tools and modern workflows, and 6) A network of industry connections.",
+    question: "What will I achieve?",
+    answer: "Beyond skills, you'll gain: 1) Real project experience that employers value, 2) A portfolio of AI-powered projects, 3) Recommendation letters from industry experts, 4) A professional network, 5) Practical AI workflow mastery, and 6) Career guidance and job referrals.",
   },
   {
-    question: "How long will it take?",
-    answer: "Meaningful contributions typically take 3-6 months with approximately 20 hours per week of dedication. This timeline allows you to build a substantial portfolio and gain the practical experience employers seek.",
+    question: "How long does it take?",
+    answer: "The full journey is 6 months with approximately 20 hours per week. You'll go from foundations (Month 1-2) through development (Month 3-4) to mastery (Month 5-6), building increasingly complex projects along the way.",
   },
   {
-    question: "How does it work?",
-    answer: "We follow a structured approach with daily meetings, planning sessions, retrospectives, and hands-on workshops. You'll work on real projects using modern tools and methodologies, including AI-powered workflows, while receiving continuous feedback and mentorship.",
+    question: "What's the difference between the plans?",
+    answer: "Community (€29/mo) gives you recordings, Telegram group, and async Q&A. Live (€79/mo) adds weekly live sessions where you build alongside your mentor. Mentorship (€199/mo) adds 1-on-1 monthly calls, project reviews, and career guidance. All plans include a 1-week free trial.",
   },
 ];
 
