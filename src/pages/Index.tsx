@@ -5,6 +5,8 @@ import ApplicationDialog from "@/components/ApplicationDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { prices } from "@/lib/payment-matrix";
 
+const calendlyUrl = "https://calendly.com/razbakov";
+
 const Index = () => {
   const pricingTiers = [
     {
@@ -52,11 +54,13 @@ const Index = () => {
             <a href="#faq" className="text-sm text-muted-foreground hover:text-slate-50 transition-colors">FAQ</a>
           </nav>
           <Button
-            onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
+            asChild
             className="bg-accent text-accent-foreground hover:bg-accent-dark text-sm px-5 py-2 rounded-lg font-semibold"
             size="sm"
           >
-            Start Free Trial
+            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+              Book a Free 15-Min Call
+            </a>
           </Button>
         </div>
       </header>
@@ -325,17 +329,16 @@ const Index = () => {
                   ))}
                 </ul>
                 <Button
-                  onClick={() => {
-                    const pkg = prices[tier.key];
-                    if (pkg?.paymentLink) window.location.href = pkg.paymentLink;
-                  }}
+                  asChild
                   className={`w-full py-5 text-base font-semibold rounded-xl transition-all duration-300 ${
                     tier.popular
                       ? "bg-accent text-accent-foreground hover:bg-accent-dark shadow-[0_0_20px_-5px_rgba(251,191,36,0.3)] hover:shadow-[0_0_30px_-5px_rgba(251,191,36,0.5)]"
                       : "bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
                   }`}
                 >
-                  Start Free Trial
+                  <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+                    Book a Free 15-Minute Call
+                  </a>
                 </Button>
               </div>
             ))}
