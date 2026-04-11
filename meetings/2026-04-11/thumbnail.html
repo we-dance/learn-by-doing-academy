@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0a0a2e 0%, #1a0a3e 30%, #2d1b69 60%, #1a2a6c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Grid overlay */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+  }
+
+  /* Glow orbs */
+  .orb1 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138,43,226,0.3) 0%, transparent 70%);
+    top: -100px; right: -50px;
+    z-index: 0;
+  }
+  .orb2 {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,150,255,0.2) 0%, transparent 70%);
+    bottom: -80px; left: 50px;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    margin-bottom: 30px;
+  }
+
+  .badge .live {
+    color: #ff4444;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 96px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 0 0 60px rgba(138,43,226,0.5);
+  }
+
+  h1 .highlight {
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .levels {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 30px 0 20px;
+  }
+
+  .level-dot {
+    width: 40px;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .level-dot.active {
+    background: linear-gradient(90deg, #a855f7, #3b82f6);
+    box-shadow: 0 0 10px rgba(138,43,226,0.5);
+  }
+
+  .subtitle {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 28px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 15px;
+  }
+
+  .subtitle span {
+    color: #a855f7;
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .author {
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  .series {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 16px;
+    color: rgba(255,255,255,0.4);
+  }
+</style>
+</head>
+<body>
+  <div class="orb1"></div>
+  <div class="orb2"></div>
+
+  <div class="content">
+    <div class="badge"><span class="live">LIVE</span> &mdash; Learn By Doing Academy #1</div>
+    <h1><span class="highlight">10 LEVELS</span></h1>
+    <h1>OF AI</h1>
+    <div class="levels">
+      <div class="level-dot active"></div>
+      <div class="level-dot active"></div>
+      <div class="level-dot active"></div>
+      <div class="level-dot active"></div>
+      <div class="level-dot active"></div>
+      <div class="level-dot"></div>
+      <div class="level-dot"></div>
+      <div class="level-dot"></div>
+      <div class="level-dot"></div>
+      <div class="level-dot"></div>
+    </div>
+    <div class="subtitle">from <span>ChatGPT</span> to <span>Ikigai</span></div>
+  </div>
+
+  <div class="bottom">
+    <div class="author">Alex Razbakov</div>
+    <div class="series">learn-by-doing-academy.com</div>
+  </div>
+</body>
+</html>
