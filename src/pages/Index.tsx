@@ -1,5 +1,6 @@
 import { Linkedin, Bot, Radio, Rocket, Users, UserCheck, Check, Globe, Youtube, Send, ArrowRight, Sparkles, Zap, Trophy, ExternalLink } from "lucide-react";
 import FAQ from "@/components/FAQ";
+import LiveBanner from "@/components/LiveBanner";
 import { Button } from "@/components/ui/button";
 import ApplicationDialog from "@/components/ApplicationDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -64,6 +65,9 @@ const Index = () => {
           </Button>
         </div>
       </header>
+
+      {/* Saturday live stream CTA */}
+      <LiveBanner />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
