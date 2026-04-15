@@ -26,10 +26,22 @@ export default async function handler(): Promise<Response> {
 
     const html = await res.text();
 
-    // Primary signal: YouTube embeds "isLiveBroadcast":true in the ld+json
-    // / ytInitialPlayerResponse blob when the page is a live watch page.
-    const isLive = /"isLiveBroadcast"\s*:\s*true/.test(html) ||
-      /"isLive"\s*:\s*true/.test(html);
+    // Signals that distinguish "currently live right now" from "this page
+    // is a replay of a past live stream":
+    //
+    // - `"isLiveNow":true`  — present inside liveBroadcastDetails only
+    //   while the broadcast is active. Disappears when it ends.
+    // - `"hlsManifestUrl":` — streaming manifest. Only present on active
+    //   live watch pages; replays serve regular progressive video.
+    //
+    // We deliberately do NOT trust `"isLiveBroadcast":true` (ld+json
+    // schema.org) or `"isLiveContent":true` (videoDetails) — both are
+    // true for any video that was *ever* a live broadcast, so they
+    // produce false positives on replays when @razbakov/live resolves
+    // to the last completed stream's watch page.
+    const isLive =
+      /"isLiveNow"\s*:\s*true/.test(html) &&
+      /"hlsManifestUrl"\s*:\s*"/.test(html);
 
     let videoId: string | null = null;
     if (isLive) {
