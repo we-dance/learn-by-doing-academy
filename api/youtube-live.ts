@@ -1,4 +1,4 @@
-// Vercel serverless function: detect whether @razbakov is live on YouTube
+// Vercel serverless function: detect whether @alosha-ai is live on YouTube
 // without needing a YouTube Data API key. We fetch the channel's /live URL
 // and inspect the returned HTML for a live-broadcast marker.
 //
@@ -10,7 +10,7 @@ export const config = {
   runtime: "edge",
 };
 
-const LIVE_URL = "https://www.youtube.com/@razbakov/live";
+const LIVE_URL = "https://www.youtube.com/@alosha-ai/live";
 
 export default async function handler(): Promise<Response> {
   try {
@@ -37,7 +37,7 @@ export default async function handler(): Promise<Response> {
     // We deliberately do NOT trust `"isLiveBroadcast":true` (ld+json
     // schema.org) or `"isLiveContent":true` (videoDetails) — both are
     // true for any video that was *ever* a live broadcast, so they
-    // produce false positives on replays when @razbakov/live resolves
+    // produce false positives on replays when @alosha-ai/live resolves
     // to the last completed stream's watch page.
     const isLive =
       /"isLiveNow"\s*:\s*true/.test(html) &&

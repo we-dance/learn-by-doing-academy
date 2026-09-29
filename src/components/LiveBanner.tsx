@@ -2,34 +2,34 @@ import { useEffect, useMemo, useState } from "react";
 import { Radio, MessageSquarePlus, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const CHANNEL_URL = "https://www.youtube.com/@razbakov";
-const LIVE_URL = "https://www.youtube.com/@razbakov/live";
+const CHANNEL_URL = "https://www.youtube.com/@alosha-ai";
+const LIVE_URL = "https://www.youtube.com/@alosha-ai/live";
 const AGENDA_URL =
   "https://docs.google.com/document/d/19KK_LtUS5hH-zh241w6ItwEedFr_Ke7OtqPJE-C7VZM/edit";
 const STREAM_TZ = "Europe/Berlin";
-const STREAM_HOUR = 10; // Saturdays 10:00–11:00 Europe/Berlin
+const STREAM_HOUR = 12; // Wednesdays 12:00–13:00 Europe/Berlin
 const STREAM_DURATION_MS = 60 * 60 * 1000; // 1 hour
 
 type LiveState = { isLive: boolean; videoId: string | null };
 
 /**
- * Compute the next (or currently-running) Saturday 10:00 Europe/Berlin as a
+ * Compute the next (or currently-running) Wednesday 12:00 Europe/Berlin as a
  * real Date. Uses Intl to get the offset for Berlin on the target day, so
  * DST flips work without a tz library.
  */
-function getNextSaturdayStart(now: Date): Date {
-  // Find the next Saturday (incl. today if today is Sat).
+function getNextWednesdayStart(now: Date): Date {
+  // Find the next Wednesday (incl. today if today is Wed).
   const berlinNow = new Date(
     now.toLocaleString("en-US", { timeZone: STREAM_TZ }),
   );
-  const dow = berlinNow.getDay(); // 0 Sun .. 6 Sat
-  const daysUntilSat = (6 - dow + 7) % 7;
+  const dow = berlinNow.getDay(); // 0 Sun .. 3 Wed
+  const daysUntilWed = (3 - dow + 7) % 7;
   const target = new Date(berlinNow);
-  target.setDate(target.getDate() + daysUntilSat);
+  target.setDate(target.getDate() + daysUntilWed);
   target.setHours(STREAM_HOUR, 0, 0, 0);
 
-  // If it's already Saturday past stream end, roll to next Saturday.
-  if (daysUntilSat === 0) {
+  // If it's already Wednesday past stream end, roll to next Wednesday.
+  if (daysUntilWed === 0) {
     const endOfStream = target.getTime() + STREAM_DURATION_MS;
     if (berlinNow.getTime() > endOfStream) {
       target.setDate(target.getDate() + 7);
@@ -132,7 +132,7 @@ const LiveBanner = () => {
     return () => clearInterval(id);
   }, []);
 
-  const nextStart = useMemo(() => getNextSaturdayStart(now), [now]);
+  const nextStart = useMemo(() => getNextWednesdayStart(now), [now]);
   const countdown = formatCountdown(nextStart.getTime() - now.getTime());
   const nextLabel = formatNextDate(nextStart);
 
@@ -142,7 +142,7 @@ const LiveBanner = () => {
 
   return (
     <section
-      aria-label="Saturday live session"
+      aria-label="Wednesday live session"
       className="relative border-b border-border/50 bg-gradient-to-b from-background via-background to-background/60"
     >
       <div className="container px-4 py-4 md:py-5">
@@ -174,7 +174,7 @@ const LiveBanner = () => {
                     Next live session
                   </div>
                   <div className="text-slate-50 text-sm md:text-base truncate">
-                    {nextLabel} · 10:00 Berlin
+                    {nextLabel} · 12:00 Berlin
                     <span className="text-muted-foreground">
                       {" "}
                       · in {countdown}
