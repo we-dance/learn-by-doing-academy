@@ -375,7 +375,7 @@ const Index = () => {
                   <a href="https://razbakov.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     <Globe className="w-4 h-4" />
                   </a>
-                  <a href="https://www.youtube.com/@razbakov" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.youtube.com/@alosha-ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                     <Youtube className="w-4 h-4" />
                   </a>
                   <a href="https://t.me/razbakov" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -829,7 +829,7 @@ const Index = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/@razbakov" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary text-sm transition-colors flex items-center gap-2">
+                  <a href="https://www.youtube.com/@alosha-ai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary text-sm transition-colors flex items-center gap-2">
                     <Youtube className="w-4 h-4" /> YouTube
                   </a>
                 </li>
